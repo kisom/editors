@@ -1,0 +1,17 @@
+#!/bin/sh
+# fsx := Find String for X
+if [ $1x == x ]; then
+  echo "Usage:	$0 <string> [<file-spec> [<options>]]"
+  echo "	Open edx on the result of 'grep -Iinsr <string> [<file-spec> [<options>]]'."
+  echo "	If optional <filespec> is omitted, default to 'grep -Iinsr <string> *'."
+  echo "	 else default to 'grep -Insr <file-spec> [<options>]'."
+  echo "	In edx <Ctrl>F1 with the text cursur under a path/filename or"
+  echo "	Left button double click on a path/filename will open"
+  echo "	path/filename in another edx at the grep found line number."
+else
+  if [ $2x == x ]; then # no <filespec> so default to '*'
+    grep -Iinsr $1 * > f.lst 2>> f.lst;edx f.lst;sleep 1;rm f.lst
+  else # pass _all_ grep parameters
+    grep -Insr $@ > f.lst 2>> f.lst;edx f.lst;sleep 1;rm f.lst
+  fi
+fi

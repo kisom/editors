@@ -1,0 +1,3 @@
+[submodule "mg"]
+	path = mg
+	url = https://github.com/ibara/mg

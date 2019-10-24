@@ -1,0 +1,836 @@
+<html><head><script src="Twee%20Editors_files/analytics.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app12.us.archive.org';v.server_ms=279;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="Twee%20Editors_files/ait-client-rewrite.js" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init("https://web.archive.org/web/", "20051216232105", "www.modest-proposals.com:80");
+</script>
+<script type="text/javascript" src="Twee%20Editors_files/wbhack.js" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('https://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="Twee%20Editors_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="Twee%20Editors_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="keywords" content="small text editor source gui command line assembler C linux X-Windows DOS Windows Win32">
+<meta name="GENERATOR" content="SKNT Rev. 1.45C">
+<title>Twee Editors</title>
+</head>
+
+<body topmargin="0" leftmargin="115" background="Twee%20Editors_files/ylw_back.png"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="Twee%20Editors_files/timestamp.js" charset="utf-8"></script>
+<script type="text/javascript" src="Twee%20Editors_files/graph-calc.js" charset="utf-8"></script>
+<script type="text/javascript" src="Twee%20Editors_files/auto-complete.js" charset="utf-8"></script>
+<script type="text/javascript" src="Twee%20Editors_files/toolbar.js" charset="utf-8"></script>
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+.wb-autocomplete-suggestions {
+    text-align: left; cursor: default; border: 1px solid #ccc; border-top: 0; background: #fff; box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+    position: absolute; display: none; z-index: 2147483647; max-height: 254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
+}
+.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
+.wb-autocomplete-suggestion b { font-weight: bold; }
+.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
+</style>
+<div id="wm-ipp-base" style="display: block; direction: ltr;" lang="en">
+</div><script type="text/javascript">
+__wm.bt(600,27,25,2,"web","http://www.modest-proposals.com/Twee.htm","2005-12-16",1996,"/_static/",['css/banner-styles.css','css/iconochive.css']);
+</script><div class="wb-autocomplete-suggestions "></div>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<!-- <hr> -->
+<a name="TOP"></a>
+<p align="center">&nbsp;
+
+  <a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/usk.png" title="usk and u with run xterm and qvwm">uSk Screenshot</a>
+  <a href="#DOWNLOAD" title="goto Download">Download</a>
+  <a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/edx.png" title="edx.png">edx/EditX Screenshot</a><br>
+  <a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/edx-1.03.tgz" title="binary/edx-1.03.tgz">edx/EditX tgz</a>
+  <a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/twee.png" title="uem, ue and ux">Twee editors Screenshot</a><br>
+  <a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/twee-1.38.tgz" title="binary/twee-1.38.tgz">Twee editors tgz</a>
+
+</p>
+
+<h2 align="center"><strong>Twee Editors</strong></h2>
+<p align="center">Source code for small text editors</p>
+<p align="center">Dec. 9, 2005</p>
+<!-- <hr> -->
+<p align="left">*A 'twee' editor is one that is the
+minimum size for a functional editor, without
+compression.</p>
+
+<p align="left">I have been a programmer since 1975, when I wrote
+my first Forth compiler, assembled it by hand into octal and then
+_hand toggled_ it into a binary register on a Bendix BDX-900
+mini-computer. 1100 18bit words, if I recall correctly.</p>
+
+<p align="left">The second version of Forth was a real
+improvement. I hand assembled the opcodes into hex and hand
+keyed them in thru an alter/examine/execute hex monitor on an
+8-bit 6502 microprocessor. Took about 1250 bytes.</p>
+
+<p align="left">The third time I had a line editor and assembler,
+both loaded from cassette tape onto the development system. There,
+I edited source from a keyboard and then assembled and loaded
+the resulting binary using the computer. How much better can it
+get?</p>
+
+<p align="left">What did I learn from the above? Forth, machine
+language and that I really, really needed a text editor. Have been
+writing, and re-writing them ever since.</p>
+
+<p align="left">What I learned in my early days of contract
+programming was that 60% of the project was the design phase, 20%
+was the entering code phase, 10% debugging and the rest
+maintenance. Proper design and debugging only required a line
+editor to get the requisite changes into the computer. So
+communicating with computers doesn't require much more than a
+command line that recognizes backspace and enter keys.</p>
+
+<p align="left">But then things got complicated. Modems became
+popular. Email and online accounts became geek requirements. Now
+I was communicating with peepul. And they require more
+flexibility in their communications. That was when the screen
+editor came into wide use. We programmers now had smiley faces
+for emotive connotations. The rest of the world sneered at us and
+moved on to 'word processors' with colors and fonts.</p>
+
+<p align="left">How many different ways are there to communicate
+between humans thru a computer? Just the factorial of the number
+of connections between humans using computers. Humans can and do
+change their mode of communication with each person they attempt
+to communicate with. The wide spread use of word processors now
+makes somewhat more sense to me. </p>
+
+<p align="left">So much for word processors. I was being paid to
+communicate with computers. Back to ASCII text editors.</p>
+
+<p align="left">As the pace for project development increased,
+the amount of time decreased. Management was paying to see
+results. So a more flexible editor was needed to demonstrate the
+progress on a project. Heh. What they got was screen editors that
+could fling data past them faster than they could read it. But
+volume was impressive and they were satisfied.</p>
+
+<p align="left">What does a GUI have to do with real-time OSs and
+hardware driver development? Not much. But GUIs were the new
+trippy toy and you could really dazzle people with the new
+editors. But I still keep ASCII screen editors around for when I
+really have to get the job done. Where do you think this software
+came from?</p>
+
+<p align="left">My first ASCII screen editor was Wordstar. Hated
+it, but the control key sequence came eventually. The next screen
+editor demanded I learn new controls, which I refused. Wrote my
+own text editor. With Wordstar control codes. Moved from CPM to
+DOS. Same thing. Learn new control sequence. Same response. Find
+source to already written text editor. Rewrite to Wordstar
+control sequence. (I will also mention there were a whole slew of
+Forth text editors I wrote, but that is for a historical
+perspecitve on Forth). Been doing one or the other ever since.
+Never professionally polished, just good enough to suit my needs.
+And it always teaches me something new and useful.</p>
+
+<p align="left">One final note. An absolute necessity for me, in
+a text editor, is an 'undo' feature. With that, I have both error
+recovery and a real time micro CVS while doing program
+development. If a text editor doesn't have undo, it is just a
+toy.</p>
+
+<p align="center"><strong>A Brief History of Interactive Text
+Editors</strong></p>
+
+<p align="left">We'll skip the old punch cards and go straight to
+teletype.</p>
+
+<p align="left">In the beginning was the line editor. Open a
+file, list lines in a file, delete line(s) to kill buffer, insert
+immediate line/kill buffer to a specified point, write to file
+and exit. Undo in the form of a kill buffer. How much simpler can
+it get?</p>
+
+<p align="left">Then came the VDU (Video Display Unit, remember
+the ADM-3A?), a CRT serial terminal which enabled 'the screen
+editor'. Open file, display a full screen of text, move cursor,
+insert characters, mark blocks of text, copy/delete/save marked
+blocks, insert file, create file, save file, close file and exit.
+Not really that much more complex.</p>
+
+<p align="left">Then came the PC with mouse interface. Augment
+the keyboard text selection with mouse movement and button
+clicks. But this 'simple' change wasn't. It required a secondary
+task running in the background to unite asynchronous mouse motion
+and button clicks.</p>
+
+<p align="left">Then some genius recognized that the screen
+updating could be handled by the same background task that ran
+the mouse and, voila, the WIMP (Windowed Interface, Mouse
+Pointer) GUI (Graphical User Interface) was born. Display
+characters or paint pretty fonts (or pretty pictures for that
+matter), track point-and-click to select text or change/update
+the display.</p>
+
+<p align="left">After several years of shaking out, the
+multi-tasking versions settled into a common simplified form: </p>
+
+<ul>
+    <li><p align="left">open a Window GC (Graphical Context)</p>
+    </li>
+    <li><p align="left">set fonts and colors</p>
+    </li>
+    <li><p align="left">open/create the text file for editing</p>
+    </li>
+    <li><p align="left">editor main loop gets mouse and keyboard
+        events, translates to insert/mark/delete/save/load/quit
+        actions. </p>
+    </li>
+    <li><p align="left">Each editor instance is treated as a
+        single task. </p>
+    </li>
+</ul>
+
+<p align="left">If an OS main() executive is monitoring and
+providing the mouse/keyboard events, then it can intercept and
+pre-empt any other task in order to switch-to/kill any given
+task. Not quite the simplified logic of a line editor, now is it?</p>
+
+<p align="left">The following table of 'Twee' editors tracks this
+development cycle and provides the data for some observational
+conclusions. The group ordering is roughly that of the sequence
+that each genre was developed. Linux/UNIX is both near first and
+last because the UNIX command line started with line editors
+before DOS existed, but is late to the party for mature simple
+GUI text editors. </p>
+
+<p align="left">&nbsp;</p>
+<p align="left">* Note: for the purposes of this discussion, the
+word 'functional' means: posseses a reasonable set of features to
+provide usable operation. The word 'operational' means: a less
+than acceptable set of features and is barely usable.</p>
+
+<hr>
+
+Legend:<p></p>
+
+<p align="left">size #bytes: Size of program in bytes. Forth
+lists the size of compiled editor code and size of kernel,
+including editor code.</p>
+
+<p align="left">name: Text editor name.</p>
+
+<p align="left">Source/Compiler: source type and specific
+compiler/assembler.</p>
+
+<p align="left">Engine: Text editor engine, i.e. supplied code or
+external library.</p>
+
+<p align="left">Undo: Has relatively unlimited undo/redo.</p>
+
+<p align="left">Max size: maximum edit file size. 'mem' means up
+to maximum available memory.</p>
+
+<p align="left">Interface:</p>
+
+<blockquote>
+    <p align="left">line: insert/append/delete whole lines.</p>
+    <p align="left">screen: direct cursor positioning thru
+    keyboard control. </p>
+    <p align="left">gui: keyboard + mouse.</p>
+</blockquote>
+
+<a name="DOWNLOAD"></a>
+
+<hr>
+<p align="center"><strong>Twee Editor Table</strong></p>
+
+<table border="0">
+    <tbody><tr>
+        <td width="100">Size #bytes</td>
+        <td width="100">name</td>
+        <td width="100">Source/Compiler</td>
+        <td width="100">Engine</td>
+        <td width="100">Undo</td>
+        <td width="100">Max size</td>
+        <td width="100">Interface</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">Forth Compiler/Iinterpreter</caption>
+    <tbody><tr>
+        <td width="100">588/9752 </td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/c4th100.zip">c4th.com</a></td>
+        <td width="100">Forth c4th</td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">1k</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">1984/9556</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/4thice22.zip">u4.com</a></td>
+        <td width="100">Forth u4</td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">&lt;40k</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">4241/17395</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/4thice22.zip">4word.com</a></td>
+        <td width="100">Forth 4word</td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">Linux Command LIne</caption>
+    <tbody><tr>
+        <td width="100">6424</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/ue.1.25.tgz">ue</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">8472</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/ftp://ibiblio.org/pub/linux/apps/editors/tty/ed.tar.Z">ed</a></td>
+        <td width="100">C <a href="https://web.archive.org/web/20051216232105/http://gcc.gnu.org/">gcc</a></td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">mem</td>
+        <td width="100">line</td>
+    </tr>
+    <tr>
+        <td width="100">11579</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.sax.de/~adlibit/">e3</a></td>
+        <td width="100">asm <a href="https://web.archive.org/web/20051216232105/http://nasm.2y.net/">NASM</a></td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">15208</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.sax.de/~adlibit/">e3c</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">22168</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/edx-1.03.tgz">mye</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">DOS Command Line</caption>
+    <tbody><tr>
+        <td width="100">2982</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/ftp://garbo.uwasa.fi/pc/pcmagvol/vol7n19.zip">Ted.com</a></td>
+        <td width="100">asm <a href="https://web.archive.org/web/20051216232105/http://www.movsd.com/masm.htm">MASM</a></td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">60k</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">3294</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.sax.de/~adlibit/">e2dos.com</a></td>
+        <td width="100">asm <a href="https://web.archive.org/web/20051216232105/http://www.borland.com/downloads/">TASM</a></td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">60k</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">4570</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/ke.zip">ke.com</a></td>
+        <td width="100">asm MASM</td>
+        <td width="100">Code</td>
+        <td width="100">no</td>
+        <td width="100">60k</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">4088</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.bhk.com/tm/">tm.com</a></td>
+        <td width="100">asm MASM</td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">60k</td>
+        <td width="100">screen</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">Win32 Command Line</caption>
+    <tbody><tr>
+        <td width="100">15864</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.sax.de/~adlibit/">e3.exe</a></td>
+        <td width="100">asm NASM</td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+    <tr>
+        <td width="100">19540</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/edx-1.03.tgz">mye.exe</a></td>
+        <td width="100">C <a href="https://web.archive.org/web/20051216232105/http://www.cs.princeton.edu/software/lcc/">LCC</a></td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">screen</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">Win32 GUI</caption>
+    <tbody><tr>
+        <td width="100">7168</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.movsd.com/masm.htm">qikpad.exe</a></td>
+        <td width="100">asm <a href="https://web.archive.org/web/20051216232105/http://www.movsd.com/masm.htm">MASM</a></td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">32k</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">8704</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/uRe10.zip">uRe.exe</a></td>
+        <td width="100">asm MASM</td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">2M</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">16896</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/uSK10.zip">uSk.exe</a></td>
+        <td width="100">asm MASM</td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">2M</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">101888</td>
+        <td width="100">*Sknt.exe</td>
+        <td width="100">C <a href="https://web.archive.org/web/20051216232105/http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vcedit/html/vcorivisualcmainnode.asp">MSVC</a></td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+</tbody></table>
+<hr>
+<table border="0">
+    <caption align="top">Linux GUI</caption>
+    <tbody><tr>
+        <td width="100">7032</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/uskl-0.26.tgz">u</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">9980</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/ftp://ftp.x.org/pub/unsupported/programs/xedit/">xedit</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">16600</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/uskl-0.26.tgz">uSk</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Lib</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">31640</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/edx-1.03.tgz">edx</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Code</td>
+        <td width="100">yes</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+    <tr>
+        <td width="100">30488</td>
+        <td width="100"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/binary/ge-0.10.tgz">ge</a></td>
+        <td width="100">C gcc</td>
+        <td width="100">Lib</td>
+        <td width="100">no</td>
+        <td width="100">mem</td>
+        <td width="100">gui</td>
+    </tr>
+</tbody></table>
+<hr>
+
+<p align="left">* for reference purposes only. Not available for
+download.<br>
+Note: 'u' in the name of an editor is pronounced 'micro' not
+'you'.<br>
+</p><hr>
+<br>
+<strong>forth compiler/interpreter:</strong><p></p>
+
+<p align="left">Go ahead, say "Lisp based emacs is
+simple." Make. My. Day.</p>
+
+<p align="left">Which is why Forth is included. It predates UNIX,
+and is famed, nay, notorious, for it's simple editors. </p>
+
+<p align="left">See the c4th.com screen text editor for a simple
+1k source, 544 bytes of code screen text editor. Of course it is
+limited to editing only a few k of text, but it shows how small
+an operational screen editor can be. Oh, sure, be strict and
+include the interactive, open-ended, programmable, incremental
+compiler/interpreter with file I/O and it is still only 9752
+bytes in length.</p>
+
+<p align="left">The u4.com forth text editor shares the same
+source with the 4word text editor. The editor code sizes are 1984
+and 4241 bytes. u4 is a 16-bit version of Forth, while 4word is a
+32-bit version that gives you access to the entire 386+ physical
+memory. What a difference an architecture makes! The Forth kernel
+sizes are 9556 and 17395 bytes, respectively. (What can I say?
+32-bit code is larger). The u4/4word text editors are basic
+screen editors with forward search. Functional for Forth
+programming purposes. Operational for a generic text editor.</p>
+
+<hr>
+Linux command line:<p></p>
+
+<p align="left">Maybe I finally got it right. ue is my take
+on the optimal mixture of code size and functions. String
+search, undo and tab character handling in a 6.4k screen editor.
+I have looked for 20 years for a basic ASCII screen text editor.
+Finally quit looking and converted Anthony Howe's 1991 Obfuscated C
+Code winning editor, ant, to a basic screen editor. Good for
+rescue disks and roll-your-own projects.</p>
+
+<p align="left">Ed is the classical line editor. 8472 bytes.
+Everything you ever _needed_ in a functional text editor.</p>
+
+<p align="left">Albrecht Kleine's e3 screen editors are about the
+finest examples of maximum utility/artistry in a small package.
+Simple, e3 aint. The code optimization tricks in e3.asm can keep
+me up all night (they have). But it is the smallest (12550
+bytes), most complete standalone screen text editor, with undo,
+you can find for linux. Extreme functional artistry.</p>
+
+<p align="left">For the binary or OS challenged, Albrecht also
+provides e3c.c. File size, there, is 15208 bytes. Multiple
+interface styles including Wordstar. Extremely functional.</p>
+
+<p align="left">Mye is an updated version of Yijun Ding's ee.c.
+It utilizes termcap I/O and also compiles under Win32. Yijun's
+original code simplicity is reflected in a final binary size of 
+22168 bytes. Has nearly identical capacities to Edx, including
+undo/redo. Basic WordStar control key clone. Functional.
+</p>
+
+<hr>
+<strong>DOS command line:</strong><p></p>
+
+<p align="left">DOS provided the ubiquitous environment that
+produced some of the simplest and/or smallest screen text editors
+ever. </p>
+
+<p align="left">See Tom Kihlken's ted.asm for the results of a
+collision between a line editor and cursor/function keys. And in
+only 2982 bytes of assembler. Now that is elegant programming in
+a functional editor. </p>
+
+<p align="left">Albrecht Kleine has e2dos.com. Artistry in a
+WordStar clone at 3294 bytes. Quite functional. (Albrecht says
+e2dos.asm is TASM source, but I was able to compile it with MASM,
+your choice).</p>
+
+<p align="left">The ke.com editor is my hacked version of ted
+that uses the WordStar control sequence, with the addition of a
+search function and status line. Size blossoms to 4570 bytes.
+Functional.</p>
+
+<p align="left">But Brian Kelly's tm.com editor is the icing and
+the cake. A partial list of features include 4088 bytes in size,
+command line loading, incremental forward/reverse search and
+undo. Byte for byte the most efficient end-user application I
+have ever seen. And his code optimizations are a full course in
+assembler language programming. Beyond functional. A dedicated
+work of art.</p>
+
+<hr>
+<strong>Win32 command line:</strong><p></p>
+
+<p align="left">The Win32 command line suffers from a lack of
+text editors from the Windows world. (Cygwin may be in the
+Windows world, but it is not of it.) Same source for e3 and mye,
+but in a Win32 environment. See above for functional
+descriptions/comments. e3 still rocks.</p>
+
+<hr>
+<strong>Win32 GUI:</strong><p></p>
+
+<p align="left">The Win32 GUI world suffers from bloat.
+"What's the problem? It takes up a smaller percentage on the
+new, bigger hard disks." A quote from an anonymous MicroSerf
+when I asked why new apps were always larger.</p>
+
+<p align="left">Presented are three WIMP GUI editors written in
+assembler to buck the bloated trend. All include the standard CUA
+(Common User Architecture) cut/copy/paste with either keyboard or
+mouse.</p>
+
+<p align="left">All three editors are derived from the MASM32
+assembler kit from Hutch and Iczelion. These guys are walking
+lessons in Win32 assembler, as well as superb programmers. Worth
+studying in detail.</p>
+
+<p align="left">MASM32 is the definitive package for Win32
+assembler programming, including MASM 6.1x, supporting binaries,
+include files and libs, with tutorials and excellent working
+examples. (Don't talk to me about the bloated Cygwin and NASM
+doesn't include all the extras.)</p>
+
+<p align="left">Qikpad is an example asm wrapper derived from the
+MASM32 kit around the Richedit text control, limited to edit file
+size of 32k, max. But it does include undo. It shows how low you
+can go and still be functional.</p>
+
+<p align="left">uRe (u Rich edit) is an improved version of
+Qikpad that opens files up to 2Meg in size. Search and command
+line file loading were also added for a binary size of 8704
+bytes. Functional.</p>
+
+<p align="left">uSk is a full blown notepad lookalike, with
+toolbars and everything. The pretty eye candy and added functions
+bring the size up to 16896 bytes. Contrast that with Win Notepad,
+similar functionality, but 50960 bytes in size. Very functional.</p>
+
+<p align="left">SKNT (SideKlik for NT) is my 10 year old work
+horse for Windows. I purchased the source for it back in 1991 and
+have hacked it beyond recognizition. Sorry, but I cannot make the
+source available. I bought the source, not the copyright.
+Included in the table for reference only.</p>
+
+<p align="left">SKNT is a functional clone of all the features
+that so endeared me to Borland's 1984/85 Sidekick TSR editor. The
+best all around application ever written for a computer.
+Borland's SideKick had a popup text editor with a 48k max file
+size, calculator, phone book/dialer, calendar and ASCII char/hex
+conversion table. All in a 39k com file. Actually made a $5000
+Compaq paperweight usable. You might also now understand the
+tribute I pay with some of my text editor names.</p>
+
+<p align="left">But SKNT is a much better editor than Sidekick.
+with toolbar, WIMP GUI, multi-windows, file size limited by
+available memory and undo/redo. Has a builtin run command,
+support for grep in specified directories and external calls to
+calc, calendar and Win3x phone dialer. Written in C, all in
+101888 bytes. And this isn't a wrapper around a richedit text
+control. Not much in the windows world that comes close. This
+does provide a baseline for a nominal size of a complete Win32
+GUI C source text editor.</p>
+
+<hr>
+<strong>Linux GUI:</strong><p></p>
+
+<p align="left">Lets get the worst over first. Xedit. Mutant
+sport of emacs. Wrapper around the Xaw textWidget. </p>
+
+<p align="left">First impression: "Of course it's hard to
+use. It was hard to write!". Which was pretty much the case
+until Xfree86 4.xx came along and added undo and position_changed
+callback. Now you can know where you are when you make mistakes
+and undo them. Of course you have to enable undo with the
+app-defaults file.</p>
+
+<p align="left">Which is the savior of xedit. By editing Xedit.ad
+and then copying it to </p>
+
+<p align="left">'/etc/X11/app-defaults/Xedit' (or the equivalent
+on your system)</p>
+
+<p align="left">xedit becomes something rare: a functional,
+stable X text editor. In only 9980 bytes!</p>
+
+<p align="left">No, no, not the bloated <a href="https://web.archive.org/web/20051216232105/ftp://ftp.xfree86.org/pub/XFree86/4.2.0/source/">Xfree86
+4.xx xedit</a> (don' need no steenking spell-checker). Use the <a href="https://web.archive.org/web/20051216232105/ftp://ftp.x.org/pub/unsupported/programs/xedit/">source
+from Xfree86 3.3.2</a> and add the following line to the xedit
+apps-default file</p>
+
+<p align="left">'xedit.textSource*enableUndo: True'</p>
+
+<p align="left">You may also want to change the key bindings.
+After spending 6-10 hours of editing xedit's app-defaults file,
+Xedit, you might end up with something useful. And along the way
+learn that you can also _add_ functions by compositing multiple
+key functions onto one key. See the supplied uSk.ad and U.ad for
+working examples of Wordstar style remapping and multiple
+function compositing.</p>
+
+<p align="left">A minimal operational text editor app can be
+constructed. For file loading, it inserts a named file into an
+empty file. Text editing is the same that is available from
+xedit. But the only way to save the text is to select the whole
+file with a mouse and paste it to a command line of 'cat &gt;
+file.txt'. Terminate with a '^C' to the command line. Sorta
+defeats the purpose of a text editor. But it only takes 4170
+bytes. Left as an exercise for the reader to contruct from the
+u.c source (hint: remove everything that is not required to
+create the Xaw window and associate it with the textwidget).</p>
+
+<p align="left">u is a minimal functional wrapper for the Xaw
+textwidget. Loads files from the command line, creates a new
+empty textwidget, inserts files at the cursor, saves file, does
+forward/reverse search and replace and undo. In 7032 bytes. You
+can do everything from the mouse/keyboard, so why do you need
+menus or a toolbar?</p>
+
+<p align="left">For your geek mother, there is uSk. A notepad
+clone, Xaw style. Super-set of 'u', but with a status line, menus
+and toolbar. Provides help by invoking usk on<br>
+'/etc/X11/app-defaults/uSk', <br>
+has an about dialog, opens a second usk, calls rxvt and allows
+the source_changed flag to be reset. Also has goto line#, a
+decent X file picker, dialog and messagbox support. As functional
+as any X text editor I have seen. The resulting size is about
+16600 bytes.</p>
+
+<p align="left">Funny, thats almost an identical size to the same
+functionality available from uSk.exe under Win32 GUI. uSk on X,
+is written in C, uSk.exe is written in assembler. What's wrong
+with this picture? Answer: uSk.exe has to generate the Search
+dialog box for the Richedt20.dll. libXaw.so.7 has a
+Search/Replace dialog as a builtin. Interactive dialog boxes are
+very expensive in setup and creation of the individual
+controls/widgets, regardless if it is Win32 or X.</p>
+
+<p align="left">Edx is an on going proof of concept. It takes and converts 
+the ASCII terminal text engine from mye and runs it under a bare X window. 
+Edx provides all of the functions operational under terminal mode. Edx is
+now feature complete with full mouse and selection integration. Edx is
+functionally equivalent to SKNT, minus the menus/toolbar and multi-window
+capability. Size is a very reasonable 32856 bytes for a complete text editor 
+under X. WS clone. Very functional.
+</p>
+
+<p align="left">Provided for comparison, is ge, a near functional
+GTK notepad clone which uses the GTK textwidget library. Much less 
+functional than notepad, but in 30488 bytes. Not even close to Xaw 
+in features.</p>
+
+<hr>
+<strong>Conclusions and Projections:</strong><p></p>
+
+<p align="left">The absolute minimum size for an operational
+ASCII editor is about 1k, including File I/O, on a 16-bit
+processor. For a functional screen editor, the empirical minimum
+size seems to be about 3k. For a professional grade editor, 4k.</p>
+
+<p align="left">Go to a 32-bit command line and the minimum size
+blossoms to at least 10k. The larger byte count seems to be in
+the operand size and the OS interface overhead. Could also be in
+just plain extra functionality. That is, if you are writing in
+assembler.</p>
+
+<p align="left">Code size goes up by a minimum factor of 1.5 or
+larger when you switch to C code.</p>
+
+<p align="left">With GUI you get text (widgets and controls).
+Makes for small binary size, but depends upon resident
+dynamically linked libraries. The problem with that is, the
+functions provided may not match your needs, and the API to
+integrate your needs is only available at the library source
+level, which may not be available. I.E. the API dont exist.</p>
+
+<p align="left">The Win32 Richedt20.dll is 431k, while the entire
+libXaw.so.7 is only 335k, of which the textwidget is approx. 30% or
+102k. To put it into perspective, a text editor (15k), which is
+just a wrapper around a text widget or a text control (100k+), come
+to a total size of 120k+. Or write your own editor, in C, custom
+fit to your needs for about 100k...or less.</p>
+
+<p align="left">Edx (aka EditX) is a basic text editor
+construction kit for bare X, which comes in at around 30k. See
+above. It is a feature complete standalone pure X text editor. No
+menus or toolbar, just control and function keys plus mouse.
+Undo/redo in only 1120 bytes. Dynamic buffer allocation in around
+1100 bytes. Usable cursor mouse integration in about 2k, vertical 
+srollbar and 3D effects in 1.3k and X selection in 2k. The logical 
+breakdown of components seperate quite nicely into the X interface 
+in edx.c, while the editor engine is complete in eeng.c. Code kept 
+as simple as possible, but no simpler.</p>
+
+<p align="left">As a recent update, have packaged ue w and w/o help along
+with a ported X version named ux and named the package 'Twee Editors'. The
+sstripped binary for ux is right at 12.5k and includes marked blocks, cut,
+copy, paste, goto line# and find exact string match.</p>
+
+<p align="left">If you get/have a complete text editor+source for
+any of the above platforms, please let me know. I will include a
+link from the Twee Editors table.</p>
+
+<p align="center"><a href="https://web.archive.org/web/20051216232105/http://www.modest-proposals.com/index.htm"><strong>Back to
+Modest Proposals</strong></a></p>
+
+<p align="center">If you have questions, comments or technical
+problems with this site, please email me at
+"loveall at iinet.com". (Replace " at " with an @ symbol)
+</p>
+
+<p>&nbsp;</p>
+<p><!-- <hr>
+</body>
+</html>
+--></p>
+
+
+
+</body></html>
+<!--
+     FILE ARCHIVED ON 23:21:05 Dec 16, 2005 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:07:03 Oct 24, 2019.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  esindex: 0.01
+  RedisCDXSource: 18.625
+  exclusion.robots: 0.23
+  captures_list: 77.474
+  PetaboxLoader3.resolve: 62.859
+  load_resource: 184.342
+  CDXLines.iter: 12.883 (3)
+  exclusion.robots.policy: 0.217
+  PetaboxLoader3.datanode: 121.981 (4)
+  LoadShardBlock: 42.413 (3)
+-->

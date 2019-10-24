@@ -1,0 +1,9 @@
+#!/bin/sh
+# fx := Find files for X
+if find . -iname "$@" -fprint fl.lst 2> /dev/null; then
+  false
+else
+  echo "Bad filespec. Quote the filespec with single quotes .e.g. '*.txt'" >> fl.lst
+fi
+edx fl.lst;sleep 1
+rm -f fl.lst

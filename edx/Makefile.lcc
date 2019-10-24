@@ -1,0 +1,17 @@
+# Wedit Makefile for project e
+CFLAGS=-Ic:\lcc\include -DMSVC -DSTATICBUF -O
+CC=c:\lcc\bin\lcc.exe
+LINKER=c:\lcc\bin\lcclnk.exe
+OBJS=	mye.obj
+
+LIBS= tcconio.lib
+
+mye.exe:	$(OBJS) Makefile
+	$(LINKER)  -s -subsystem console -o mye.exe $(OBJS) $(LIBS)
+
+# Build E.C
+E_C=\
+
+mye.obj: $(E_C) mye.c eeng.c
+	$(CC) -c $(CFLAGS) mye.c
+
